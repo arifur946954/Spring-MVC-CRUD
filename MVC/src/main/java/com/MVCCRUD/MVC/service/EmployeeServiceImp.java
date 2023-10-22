@@ -3,10 +3,11 @@ package com.MVCCRUD.MVC.service;
 import com.MVCCRUD.MVC.dao.EmployeeRepository;
 import com.MVCCRUD.MVC.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class EmployeeServiceImp implements EmployeeService{
     private EmployeeRepository employeeRepository;
     @Autowired
@@ -44,7 +45,7 @@ public class EmployeeServiceImp implements EmployeeService{
 
     @Override
     public void deleteById(int theId) {
-        
+
         employeeRepository.deleteById(theId);
 
     }
