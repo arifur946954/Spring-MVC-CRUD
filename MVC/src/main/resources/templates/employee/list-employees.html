@@ -21,6 +21,7 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
+    <th>Action</th>
 </tr>
 </thead>
 <tbody>
@@ -29,8 +30,14 @@
     <td th:text="${tempEmployee.firstName}">
     <td th:text="${tempEmployee.lastName}">
     <td th:text="${tempEmployee.email}">
+    <td>
+    <a
+            th:href="@{/employee/showFormForAddUpdated(employeeId=${tempEmployee.id})}"
+            class="btn btn-primary btn-sm mb-3">
+       Update
+    </a>
+</td>
 
-  </td>
 </tr>
 </tbody>
 </table>

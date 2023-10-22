@@ -42,5 +42,18 @@ public String saveInfo(@ModelAttribute("employee") Employee theEmployee){
          return "redirect:/employee/list";
 
 }
+@GetMapping("/showFormForAddUpdated")
+public String showFormForAddUpdated(@RequestParam("employeeId") int theId, Model theModel){
+         //get the employee from services
+       Employee theEmployee=  employeeService.findByID(theId);
+    //set employee in the mocel
+    theModel.addAttribute(theEmployee);
+    //sent over to our form
+    return "employee/employee-form";
+
+
+
+
+}
 
 }
