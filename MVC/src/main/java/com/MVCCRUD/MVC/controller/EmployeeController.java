@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,9 +32,15 @@ public class EmployeeController {
     public String showFormAdd(Model theModel){
          Employee theEmployee=new Employee();
          theModel.addAttribute("employee" , theEmployee);
-         return "/employee/employee-form";
+         return "employee/employee-form";
     }
+@PostMapping("/save")
+public String saveInfo(@ModelAttribute("employee") Employee theEmployee){
 
+         employeeService.save(theEmployee);
+         //use redirect for dupliocite submission
+         return "redirect:/employee/list";
 
+}
 
 }

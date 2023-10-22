@@ -13,24 +13,33 @@
     <h3>Employee Directory</h3>
     <p class="h4 mb-4">save employee</p>
     <form action="#"
-          th:action="@/employee/save"
+          th:action="@{/employee/save}"
           th:object="${employee}" method="POST">
         <input type="text" th:field="*{firstName}"
         class="form-controller mb-4 w-25"
                placeholder="input your first name"
         >
+        <br>
         <input type="text" th:field="*{lastName}"
                class="form-controller mb-4 w-25"
-               placeholder="input your first name"
+               placeholder="input your Last name"
         >
+
+        <br>
         <input type="text" th:field="*{email}"
                class="form-controller mb-4 w-25"
-               placeholder="input your first name"
+               placeholder="input your Email Address"
         >
+
+        <br>
         <button type="submit" class="btn btn-primary">Save</button>
 
 
     </form>
+    <br>
+    <a class="btn btn-outline-primary" th:href="@{/employee/list}">
+        Back to Employee List
+    </a>
 
 </div>
 
