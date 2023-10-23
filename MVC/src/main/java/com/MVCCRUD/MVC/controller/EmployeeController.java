@@ -51,9 +51,15 @@ public String showFormForAddUpdated(@RequestParam("employeeId") int theId, Model
     //sent over to our form
     return "employee/employee-form";
 
+}
+@GetMapping("/showFormForAddDelete")
+public String showDelete(@RequestParam("employeeId") int theId, Model theModel){
+       employeeService.deleteById(theId);
 
-
+    return "redirect:/employee/list";
 
 }
+
+
 
 }
